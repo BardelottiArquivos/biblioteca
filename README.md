@@ -516,8 +516,8 @@ Wellington Gonçalves Noberto RA 1706278
 ## 📞 Contato
 
 - **Email:** carlosbardelotti@gmail.com
-- **Site:** --------------------------------------------
-- **GitHub:** https://github.com/carlosbardelotti/biblioteca-do-saber
+- **Linkedin:** https://www.linkedin.com/in/carlos-eduardo-moreira-bardelotti-489b39a4/
+- **GitHub:** https://github.com/BardelottiArquivos/biblioteca
 
 ---
 
