@@ -1,0 +1,22 @@
+{# templates/chat/lista_conversas.html #}
+{% extends 'base.html' %}
+
+{% block title %}Minhas Conversas{% endblock %}
+
+{% block content %}
+<h1>Minhas Conversas</h1>
+
+<ul class="conversas-lista">
+    {% for conversa in conversas %}
+        <li>
+            <a href="{% url 'chat:conversa' conversa.id %}">
+                Conversa {{ conversa.id }}
+                {% if conversa.livro %} - {{ conversa.livro.titulo }}{% endif %}
+            </a>
+            <small>{{ conversa.data_atualizacao|date:"d/m/Y H:i" }}</small>
+        </li>
+    {% empty %}
+        <li>Nenhuma conversa ainda.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

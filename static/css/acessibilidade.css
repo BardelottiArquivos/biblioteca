@@ -1,0 +1,113 @@
+/* static/css/acessibilidade.css */
+/* =============================================
+   ESTILOS DE ACESSIBILIDADE
+   ============================================= */
+
+/* ========== Barra de Acessibilidade ========== */
+.accessibility-bar {
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accessibility-bar button {
+    background: #2c6b8f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.accessibility-bar button:hover {
+    background: #245b7a;
+}
+
+/* ========== Alto Contraste ========== */
+body.alto-contraste {
+    background: #000;
+    color: #ffff00;
+}
+
+body.alto-contraste a {
+    color: #00ffff;
+}
+
+body.alto-contraste .header {
+    background: #000;
+    border-bottom: 2px solid #ffff00;
+}
+
+body.alto-contraste .card,
+body.alto-contraste .feature {
+    background: #111;
+    border: 1px solid #ffff00;
+}
+
+body.alto-contraste .footer {
+    background: #000;
+    color: #ffff00;
+    border-top: 2px solid #ffff00;
+}
+
+/* ========== Fonte Dislexia ========== */
+body.fonte-dislexia {
+    font-family: 'Comic Sans MS', 'OpenDyslexic', Arial, sans-serif;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+}
+
+/* ========== Tamanhos de Fonte ========== */
+body.fonte-pequena {
+    font-size: 14px;
+}
+
+body.fonte-media {
+    font-size: 16px;
+}
+
+body.fonte-grande {
+    font-size: 20px;
+}
+
+body.fonte-extra {
+    font-size: 24px;
+}
+
+/* ========== Foco Visível (WCAG) ========== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid #ffcc00;
+    outline-offset: 2px;
+}
+
+/* ========== Skip Link ========== */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #2c6b8f;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}

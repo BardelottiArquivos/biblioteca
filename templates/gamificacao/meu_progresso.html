@@ -1,0 +1,30 @@
+{# templates/gamificacao/meu_progresso.html #}
+{% extends 'base.html' %}
+
+{% block title %}Meu Progresso{% endblock %}
+
+{% block content %}
+<h1>Meu Progresso</h1>
+
+<div class="progresso-info">
+    <p><strong>Pontos Totais:</strong> {{ pontuacao.pontos_totais }}</p>
+    <p><strong>Nível:</strong> {{ pontuacao.nivel }} - {{ pontuacao.titulo }}</p>
+    <p><strong>Posição no Ranking:</strong> {{ posicao|default:'-' }}</p>
+</div>
+
+{% if proxima_conquista %}
+    <div class="proxima-conquista">
+        <h2>Próxima Conquista</h2>
+        <p>{{ proxima_conquista.titulo }} (faltam {{ proxima_conquista.faltam }} pontos)</p>
+    </div>
+{% endif %}
+
+<h2>Histórico</h2>
+<ul>
+    {% for h in historico %}
+        <li>{{ h.descricao }} (+{{ h.pontos }} pts) - {{ h.data|date:"d/m/Y H:i" }}</li>
+    {% empty %}
+        <li>Nenhuma atividade ainda.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

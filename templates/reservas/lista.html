@@ -1,0 +1,27 @@
+{# templates/reservas/lista.html #}
+{% extends 'base.html' %}
+
+{% block title %}Minhas Reservas{% endblock %}
+
+{% block content %}
+<h1>Minhas Reservas</h1>
+
+<ul class="reservas-lista">
+    {% for reserva in reservas %}
+        <li>
+            <strong>{{ reserva.livro.titulo }}</strong>
+            - {{ reserva.get_status_display }}
+            (Posição: {{ reserva.posicao_fila }})
+
+            {% if reserva.status == 'A' or reserva.status == 'C' %}
+                <form method="post" action="{% url 'reservas:cancelar' reserva.pk %}" style="display:inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
+                </form>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>Nenhuma reserva ativa.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

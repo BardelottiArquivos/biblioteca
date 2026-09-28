@@ -1,0 +1,21 @@
+{# templates/gamificacao/ranking.html #}
+{% extends 'base.html' %}
+
+{% block title %}Ranking de Leitores{% endblock %}
+
+{% block content %}
+<h1>🏆 Ranking de Leitores</h1>
+
+<ol class="ranking">
+    {% for p in ranking %}
+        <li>
+            <strong>{{ p.usuario.username }}</strong>
+            - {{ p.pontos_totais }} pts
+            ({{ p.titulo }})
+        </li>
+    {% empty %}
+        <li>Nenhum usuário no ranking ainda.</li>
+    {% endfor %}
+</ol>
+{% endblock %}
+🔧 Correção: {{ p.username }} → {{ p.usuario.username }}.

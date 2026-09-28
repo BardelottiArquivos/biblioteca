@@ -1,0 +1,26 @@
+{# templates/usuarios/perfil.html #}
+{% extends 'base.html' %}
+
+{% block title %}Meu Perfil{% endblock %}
+
+{% block content %}
+<h1>Meu Perfil</h1>
+
+<div class="perfil-info">
+    <p><strong>Usuário:</strong> {{ usuario_perfil.username }}</p>
+    <p><strong>Email:</strong> {{ usuario_perfil.email }}</p>
+
+    {% if perfil %}
+        <p><strong>Tipo:</strong> {{ perfil.get_tipo_display }}</p>
+        <p><strong>Bio:</strong> {{ perfil.bio|default:'-' }}</p>
+        <p><strong>Telefone:</strong> {{ perfil.telefone|default:'-' }}</p>
+        <p><strong>Endereço:</strong> {{ perfil.endereco_completo|default:'-' }}</p>
+
+        {% if perfil.avatar %}
+            <img src="{{ perfil.avatar.url }}" alt="Avatar" class="avatar">
+        {% endif %}
+    {% endif %}
+</div>
+
+<a href="{% url 'usuarios:editar_perfil' %}" class="btn btn-primary">Editar Perfil</a>
+{% endblock %}

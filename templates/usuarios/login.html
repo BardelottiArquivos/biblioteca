@@ -1,0 +1,17 @@
+{# templates/usuarios/login.html #}
+{% extends 'base.html' %}
+
+{% block title %}Entrar - Biblioteca do Saber{% endblock %}
+
+{% block content %}
+<h1>Entrar</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
+
+<p>Não tem conta? <a href="{% url 'usuarios:cadastro' %}">Cadastre-se</a></p>
+{% endblock %}
+🔧 Correção: usuarios:cadastro (sem acento) — era usuarios:cadastro.

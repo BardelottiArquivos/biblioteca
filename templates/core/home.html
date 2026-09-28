@@ -1,0 +1,27 @@
+{# templates/core/home.html #}
+{% extends 'base.html' %}
+
+{% block title %}Início - Biblioteca do Saber{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>📚 Biblioteca do Saber</h1>
+    <p>Plataforma inclusiva para troca, doação e empréstimo de livros.</p>
+    <a href="{% url 'acervo:lista' %}" class="btn btn-primary">Explorar Acervo</a>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <h3>♻️ Economia Circular</h3>
+        <p>Troque, doe e empreste livros.</p>
+    </div>
+    <div class="feature">
+        <h3>🎮 Gamificação</h3>
+        <p>Ganhe pontos e suba no ranking.</p>
+    </div>
+    <div class="feature">
+        <h3>♿ Acessibilidade</h3>
+        <p>Recursos para todos os leitores.</p>
+    </div>
+</section>
+{% endblock %}

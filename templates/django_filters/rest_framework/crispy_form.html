@@ -1,0 +1,10 @@
+﻿{% load crispy_forms_tags %}
+{% load rest_framework %}
+
+<form class="form-inline" method="get">
+    {% if filter.form %}
+        {{ filter.form|crispy }}
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+    <a href="{{ request.path }}" class="btn btn-secondary">Limpar</a>
+</form>

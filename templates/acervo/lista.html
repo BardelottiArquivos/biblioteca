@@ -1,0 +1,47 @@
+{# templates/acervo/lista.html #}
+{% extends 'base.html' %}
+
+{% block title %}Acervo - Biblioteca do Saber{% endblock %}
+
+{% block content %}
+<h1>Acervo</h1>
+
+<form method="get" class="search-form">
+    <input type="text" name="q" placeholder="Buscar por título, autor ou ISBN..."
+           value="{{ request.GET.q|default:'' }}" class="form-control">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<div class="livros-grid">
+    {% for livro in livros %}
+        <div class="livro-card">
+            {% if livro.capa %}
+                <img src="{{ livro.capa.url }}" alt="{{ livro.titulo }}">
+            {% elif livro.capa_url %}
+                <img src="{{ livro.capa_url }}" alt="{{ livro.titulo }}">
+            {% endif %}
+
+            <h3>{{ livro.titulo }}</h3>
+            <p>{{ livro.autor }}</p>
+            <a href="{% url 'acervo:detalhes' livro.slug %}">Ver detalhes</a>
+        </div>
+    {% empty %}
+        <p>Nenhum livro encontrado.</p>
+    {% endfor %}
+</div>
+
+{# Paginação #}
+{% if is_paginated %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+
+        <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Próxima</a>
+        {% endif %}
+    </div>
+{% endif %}
+{% endblock %}

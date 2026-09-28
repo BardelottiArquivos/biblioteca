@@ -1,0 +1,21 @@
+{# templates/emprestimos/lista.html #}
+{% extends 'base.html' %}
+
+{% block title %}Meus Empréstimos{% endblock %}
+
+{% block content %}
+<h1>Meus Empréstimos</h1>
+
+<ul class="emprestimos-lista">
+    {% for emprestimo in emprestimos %}
+        <li>
+            <a href="{% url 'emprestimos:detalhes' emprestimo.pk %}">
+                {{ emprestimo.livro.titulo }}
+            </a>
+            - <span class="status">{{ emprestimo.get_status_display }}</span>
+        </li>
+    {% empty %}
+        <li>Nenhum empréstimo ainda.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

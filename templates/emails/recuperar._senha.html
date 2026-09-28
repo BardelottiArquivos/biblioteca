@@ -1,0 +1,20 @@
+{# templates/emails/recuperar_senha.html #}
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2 style="color: #2c6b8f;">Recuperação de Senha</h2>
+        <p>Olá {{ user.username }},</p>
+        <p>Você solicitou a recuperação de senha da sua conta na Biblioteca do Saber.</p>
+        <p>Clique no link abaixo para definir uma nova senha:</p>
+        <p style="text-align: center;">
+            <a href="{{ protocol }}://{{ domain }}{% url 'usuarios:password_reset_confirm' uidb64=uid token=token %}"
+               style="display:inline-block;background:#2c6b8f;color:#fff;padding:10px 20px;
+                      text-decoration:none;border-radius:5px;">
+                Redefinir Senha
+            </a>
+        </p>
+        <p>Se você não solicitou, ignore este e-mail.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+# .gitignore
+# ========================
+# ARQUIVOS IGNORADOS PELO GIT
+# ========================
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+logs/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Secrets
+*.pem
+*.key
+*.crt
+*.p12
+
+# PostgreSQL (dumps e backups)
+*.sql
+*.dump
+*.pgdump
+backup_*.tar.gz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# Node
+node_modules/
+package-lock.json
+
+# Build
+dist/
+build/
+*.egg-info/

@@ -1,0 +1,16 @@
+{# templates/notificacoes/lista.html #}
+{% extends 'base.html' %}
+
+{% block title %}Notificações{% endblock %}
+
+{% block content %}
+<h1>Notificações</h1>
+
+<ul class="notificacoes-lista">
+    {% for notificacao in notificacoes %}
+        <li>{{ notificacao }}</li>
+    {% empty %}
+        <li>Nenhuma notificação.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

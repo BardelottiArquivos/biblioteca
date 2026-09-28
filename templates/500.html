@@ -1,0 +1,10 @@
+{# templates/500.html #}
+{% extends 'base.html' %}
+
+{% block title %}Erro Interno{% endblock %}
+
+{% block content %}
+<h1>500 - Erro Interno</h1>
+<p>Algo deu errado. Nossa equipe foi notificada.</p>
+<a href="{% url 'core:home' %}" class="btn btn-primary">Voltar ao início</a>
+{% endblock %}

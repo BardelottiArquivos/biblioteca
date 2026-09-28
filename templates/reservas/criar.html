@@ -1,0 +1,16 @@
+{# templates/reservas/criar.html #}
+{% extends 'base.html' %}
+
+{% block title %}Reservar Livro{% endblock %}
+
+{% block content %}
+<h1>Reservar Livro</h1>
+
+<p><strong>Livro:</strong> {{ livro.titulo }}</p>
+<p>Ao confirmar, você entrará na fila de espera.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+</form>
+{% endblock %}

@@ -1,0 +1,72 @@
+{# templates/acervo/detalhes.html #}
+{% extends 'base.html' %}
+
+{% block title %}{{ livro.titulo }} - Biblioteca do Saber{% endblock %}
+
+{% block content %}
+<article class="livro-detalhes">
+    <h1>{{ livro.titulo }}</h1>
+
+    {% if livro.capa %}
+        <img src="{{ livro.capa.url }}" alt="{{ livro.titulo }}" class="livro-capa">
+    {% elif livro.capa_url %}
+        <img src="{{ livro.capa_url }}" alt="{{ livro.titulo }}" class="livro-capa">
+    {% endif %}
+
+    <p><strong>Autor:</strong> {{ livro.autor }}</p>
+    <p><strong>Gênero:</strong> {{ livro.get_genero_display }}</p>
+    <p><strong>Status:</strong> {{ livro.get_status_display }}</p>
+    <p><strong>Editora:</strong> {{ livro.editora|default:'-' }}</p>
+    <p><strong>Ano:</strong> {{ livro.ano_publicacao|default:'-' }}</p>
+    <p><strong>Páginas:</strong> {{ livro.paginas|default:'-' }}</p>
+
+    {% if livro.recursos_acessibilidade %}
+        <p><strong>Acessibilidade:</strong>
+            {% for recurso in livro.recursos_acessibilidade %}
+                <span class="badge">{{ recurso }}</span>
+            {% endfor %}
+        </p>
+    {% endif %}
+
+    <p>{{ livro.resumo|default:'' }}</p>
+
+    {% if user.is_authenticated and user != livro.doador %}
+        <a href="{% url 'emprestimos:solicitar' livro.slug %}" class="btn btn-primary">
+            Solicitar Empréstimo
+        </a>
+        <a href="{% url 'reservas:criar' livro.slug %}" class="btn">
+            Reservar
+        </a>
+    {% endif %}
+</article>
+
+{# Avaliações #}
+<section class="avaliacoes">
+    <h2>Avaliações</h2>
+    {% for avaliacao in avaliacoes %}
+        <div class="avaliacao">
+            <strong>{{ avaliacao.usuario.username }}</strong>
+            <span>{{ avaliacao.nota }}★</span>
+            <p>{{ avaliacao.comentario }}</p>
+        </div>
+    {% empty %}
+        <p>Nenhuma avaliação ainda.</p>
+    {% endfor %}
+</section>
+
+{# Livros similares #}
+{% if livros_similares %}
+<section class="livros-similares">
+    <h2>Livros Similares</h2>
+    <div class="livros-grid">
+        {% for similar in livros_similares %}
+            <div class="livro-card">
+                <h3>{{ similar.titulo }}</h3>
+                <p>{{ similar.autor }}</p>
+                <a href="{% url 'acervo:detalhes' similar.slug %}">Ver</a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endblock %}

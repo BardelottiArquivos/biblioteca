@@ -1,0 +1,40 @@
+{# templates/dashboard/index.html #}
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<div class="dashboard-cards">
+    <div class="card">
+        <h3>Total de Empréstimos</h3>
+        <p>{{ total_emprestimos }}</p>
+    </div>
+    <div class="card">
+        <h3>Empréstimos Ativos</h3>
+        <p>{{ emprestimos_ativos }}</p>
+    </div>
+    <div class="card">
+        <h3>Reservas</h3>
+        <p>{{ total_reservas }}</p>
+    </div>
+    <div class="card">
+        <h3>Livros Doados</h3>
+        <p>{{ livros_doados }}</p>
+    </div>
+    <div class="card">
+        <h3>Minha Pontuação</h3>
+        <p>{{ pontuacao.pontos_totais }} pts ({{ pontuacao.titulo }})</p>
+    </div>
+</div>
+
+<h2>Últimas Atividades</h2>
+<ul>
+    {% for atividade in ultimas_atividades %}
+        <li>{{ atividade.descricao }} (+{{ atividade.pontos }} pts)</li>
+    {% empty %}
+        <li>Nenhuma atividade ainda.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

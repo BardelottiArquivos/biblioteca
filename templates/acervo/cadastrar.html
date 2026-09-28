@@ -1,0 +1,14 @@
+{# templates/acervo/cadastrar.html #}
+{% extends 'base.html' %}
+
+{% block title %}Cadastrar Livro - Biblioteca do Saber{% endblock %}
+
+{% block content %}
+<h1>Cadastrar Livro</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+{% endblock %}

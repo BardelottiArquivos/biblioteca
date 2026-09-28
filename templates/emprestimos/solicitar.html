@@ -1,0 +1,16 @@
+{# templates/emprestimos/solicitar.html #}
+{% extends 'base.html' %}
+
+{% block title %}Solicitar Empréstimo{% endblock %}
+
+{% block content %}
+<h1>Solicitar Empréstimo</h1>
+
+<p><strong>Livro:</strong> {{ livro.titulo }} ({{ livro.autor }})</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
+</form>
+{% endblock %}

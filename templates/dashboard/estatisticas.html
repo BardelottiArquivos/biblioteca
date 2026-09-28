@@ -1,0 +1,26 @@
+{# templates/dashboard/estatisticas.html #}
+{% extends 'base.html' %}
+
+{% block title %}Estatísticas{% endblock %}
+
+{% block content %}
+<h1>Estatísticas</h1>
+
+<h2>Empréstimos por Status</h2>
+<ul>
+    {% for item in emprestimos_por_status %}
+        <li>{{ item.status }}: {{ item.total }}</li>
+    {% empty %}
+        <li>Nenhum dado.</li>
+    {% endfor %}
+</ul>
+
+<h2>Pontos por Ação</h2>
+<ul>
+    {% for item in pontos_por_acao %}
+        <li>{{ item.acao__tipo }}: {{ item.total }} pts</li>
+    {% empty %}
+        <li>Nenhum dado.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

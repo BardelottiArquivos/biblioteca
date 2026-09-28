@@ -1,0 +1,20 @@
+{# templates/recomendacao/recomendacoes.html #}
+{% extends 'base.html' %}
+
+{% block title %}Recomendações{% endblock %}
+
+{% block content %}
+<h1>📖 Recomendações para Você</h1>
+
+<div class="livros-grid">
+    {% for livro in recomendacoes %}
+        <div class="livro-card">
+            <h3>{{ livro.titulo }}</h3>
+            <p>{{ livro.autor }}</p>
+            <a href="{% url 'acervo:detalhes' livro.slug %}">Ver detalhes</a>
+        </div>
+    {% empty %}
+        <p>Nenhuma recomendação no momento. Explore mais livros!</p>
+    {% endfor %}
+</div>
+{% endblock %}

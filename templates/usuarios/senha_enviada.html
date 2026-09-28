@@ -1,0 +1,10 @@
+{# templates/usuarios/senha_enviada.html #}
+{% extends 'base.html' %}
+
+{% block title %}Email Enviado{% endblock %}
+
+{% block content %}
+<h1>Email Enviado</h1>
+<p>Se existir uma conta com esse email, enviamos as instruções para recuperação de senha.</p>
+<a href="{% url 'usuarios:login' %}" class="btn btn-primary">Voltar ao Login</a>
+{% endblock %}

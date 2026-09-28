@@ -1,0 +1,16 @@
+{# templates/qrcode/gerar.html #}
+{% extends 'base.html' %}
+
+{% block title %}QR Code - {{ livro.titulo }}{% endblock %}
+
+{% block content %}
+<h1>QR Code</h1>
+
+<p><strong>Livro:</strong> {{ livro.titulo }}</p>
+
+{% if livro.qr_code %}
+    <img src="{{ livro.qr_code.url }}" alt="QR Code de {{ livro.titulo }}">
+{% else %}
+    <p>QR Code não pôde ser gerado.</p>
+{% endif %}
+{% endblock %}
