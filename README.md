@@ -488,6 +488,7 @@ Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) par
 ## 👥 Autores
 
 Alex Junior Santos Martins RA 23202593
+
 Carlos Eduardo Moreira Bardelotti RA 23203089
 Ludimila da Silva Nishimura RA 2207841
 Rafael Galisteu de Mello RA 2013616
