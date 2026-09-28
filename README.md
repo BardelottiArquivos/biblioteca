@@ -487,9 +487,13 @@ Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) par
 
 ## 👥 Autores
 
-Alex Junior Santos Martins RA 23202593
+**Desenvolvedor Full Stack Júnior**
 
 Carlos Eduardo Moreira Bardelotti RA 23203089
+
+**Documentação Técnica**
+
+Alex Junior Santos Martins RA 23202593
 
 Ludimila da Silva Nishimura RA 2207841
 
